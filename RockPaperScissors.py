@@ -1,5 +1,8 @@
+# This file offers an engaging and visual way to play Rock, Paper, Scissors in the console.
+
 import random
 
+# ASCII art representations for "rock", "paper", and "scissors" are defined.
 rock = '''
     _______
 ---'   ____)
@@ -27,12 +30,23 @@ scissors = '''
 ---.__(___)
 '''
 
+# A list of choices ["rock", "paper", "scissors"] is used for random selection.
 rock_paper_scissors = ["rock", "paper", "scissors"]
 
+# The user is prompted to input their choice (case-insensitive: "rock", "paper", or "scissors").
 player_choice = input("Choose Rock, Paper, or Scissors\n").lower()
+
+# If the input is invalid, the game informs the user and exits.
 if not (player_choice == "rock" or player_choice == "scissors" or player_choice == "paper"):
     print("You've entered the wrong value,\n")
     input("press the enter button to exit")
+
+# The computer randomly selects one of the options using the random.choice function.
+# Both the user’s and computer’s choices are displayed alongside their corresponding ASCII art.
+# The game logic determines the winner based on standard Rock, Paper, Scissors rules:
+# --Rock beats Scissors.
+# --Scissors beat Paper.
+# --Paper beats Rock.
 else:
     computer_choice = random.choice(rock_paper_scissors)
     # print(f"the computer chose {computer_choice}")
@@ -50,6 +64,7 @@ else:
     elif player_choice == "scissors":
         print(f"You chose {player_choice}\n {scissors}")
 
+    # A "Draw" is declared if both choices are the same.
     if player_choice == computer_choice:
         print("Draw")
     elif player_choice == "rock" and computer_choice == "paper":
@@ -65,4 +80,6 @@ else:
     elif player_choice == "scissors" and computer_choice == "paper":
         print("You win")
 
+    # The outcome (win, lose, or draw) is announced.
+    # The game waits for the user to press Enter before exiting.
     input("press the enter button to exit")
